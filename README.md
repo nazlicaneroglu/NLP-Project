@@ -1,6 +1,6 @@
 # NLP-Project
 
-Each week you will present the findings of the previous week. Together these findings form the basis of your report:
+Each week you will present the findings of the previous week. Together these findings form the basis of your report://
 Introduce your case, present (cleaned) data (week 1)
 Formulate research question (week 2)
 Perform LDA (week 3)
