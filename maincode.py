@@ -72,3 +72,6 @@ def lemmatize_text(text):
 
 dataset['lemmatized'] = dataset['word_split'].apply(lambda x: [word.lower() for word in lemmatize_text(' '.join(x))])
 dataset.to_csv('tokenized_data_without_punctuation_stopwords_lemma.csv')
+
+#Remove numbers: I am not sure whether I should do that because some years might have importance. Ask this one.
+
