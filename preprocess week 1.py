@@ -48,6 +48,12 @@ punctuations = set(string.punctuation + '▪“”’‘©')
 dataset['word_split'] = dataset['word_split'].apply(lambda x: [word for word in x if word not in punctuations])
 dataset.to_csv('tokenized_data_without_punctuation_stopwords.csv')
 
+#Remove numbers: I am not sure whether I should do that because some years might have importance. Ask this one in the lecture
+#Answer: Remove numbers
+import re
+dataset['word_split'] = dataset['word_split'].apply(lambda x: [word for word in x if not re.match(r'\d+', word)])
+
+
 #It is also good to have one more column with lemmatization so that we can compare the quality of both choices. I will again use NLTK package.
 #We could simply use function lemmatizer.lemmatize() to do that but this function assumes that the word is always a noun. That's why, I wanted to try
 # lemmatizer.lemmatize(word, pos) which also takes the type of word into account.
@@ -73,5 +79,7 @@ def lemmatize_text(text):
 dataset['lemmatized'] = dataset['word_split'].apply(lambda x: [word.lower() for word in lemmatize_text(' '.join(x))])
 dataset.to_csv('tokenized_data_without_punctuation_stopwords_lemma.csv')
 
-#Remove numbers: I am not sure whether I should do that because some years might have importance. Ask this one in the lecture
+#This also deals with the capital letters.
+
+
 
